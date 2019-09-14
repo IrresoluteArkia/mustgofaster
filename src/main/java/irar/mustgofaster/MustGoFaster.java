@@ -16,6 +16,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import irar.mustgofaster.enchantment.EnchantmentHandler;
+import irar.mustgofaster.event.ServerEventHandler;
+
 import java.util.stream.Collectors;
 
 @Mod(MustGoFaster.MODID)

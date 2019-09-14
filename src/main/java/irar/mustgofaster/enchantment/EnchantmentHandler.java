@@ -1,8 +1,9 @@
-package irar.mustgofaster;
+package irar.mustgofaster.enchantment;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import irar.mustgofaster.MustGoFaster;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraftforge.registries.IForgeRegistry;
 

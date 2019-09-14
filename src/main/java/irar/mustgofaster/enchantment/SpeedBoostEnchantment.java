@@ -1,16 +1,16 @@
-package irar.mustgofaster;
+package irar.mustgofaster.enchantment;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 
-public class StepAssistEnchantment extends Enchantment {
+public class SpeedBoostEnchantment extends Enchantment {
 
 	private final int minLevel = 1;
-	private final int maxLevel = 1;
+	private final int maxLevel = 5;
 
-	protected StepAssistEnchantment() {
+	protected SpeedBoostEnchantment() {
 		super(Rarity.COMMON, EnchantmentType.ARMOR_FEET, new EquipmentSlotType[] {EquipmentSlotType.FEET});
 	}
 
@@ -47,16 +47,6 @@ public class StepAssistEnchantment extends Enchantment {
 	@Override
 	public boolean isAllowedOnBooks() {
 		return true;
-	}
-
-	@Override
-	public int getMinEnchantability(int enchantmentLevel) {
-		return super.getMinEnchantability(enchantmentLevel);
-	}
-
-	@Override
-	public int getMaxEnchantability(int enchantmentLevel) {
-		return super.getMaxEnchantability(enchantmentLevel) + 50;
 	}
 	
 	

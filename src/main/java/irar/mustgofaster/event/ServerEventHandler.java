@@ -1,10 +1,12 @@
-package irar.mustgofaster;
+package irar.mustgofaster.event;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import irar.mustgofaster.MustGoFaster;
+import irar.mustgofaster.enchantment.EnchantmentHandler;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
