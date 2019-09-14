@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import irar.mustgofaster.MustGoFaster;
 import irar.mustgofaster.enchantment.EnchantmentHandler;
+import irar.mustgofaster.item.FastBootItem;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
@@ -59,6 +60,9 @@ public class ServerEventHandler {
 			if(enchantments.containsKey(EnchantmentHandler.stepAssist)) {
 				return true;
 			}
+			if(armor.getItem() instanceof FastBootItem) {
+				return FastBootItem.hasStep(armor);
+			}
 		}
 		return false;
 	}
@@ -73,6 +77,9 @@ public class ServerEventHandler {
 			Map<Enchantment, Integer> enchantments = EnchantmentHelper.getEnchantments(armor);
 			if(enchantments.containsKey(EnchantmentHandler.speedBoost)) {
 				modifierStrength += enchantments.get(EnchantmentHandler.speedBoost) + 1;
+			}
+			if(armor.getItem() instanceof FastBootItem) {
+				modifierStrength += FastBootItem.getSpeedLevel(armor);
 			}
 		}
 		if(modifierStrength > 0) {

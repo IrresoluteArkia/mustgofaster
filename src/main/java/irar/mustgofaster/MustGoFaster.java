@@ -1,6 +1,7 @@
 package irar.mustgofaster;
 
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -18,6 +19,7 @@ import org.apache.logging.log4j.Logger;
 
 import irar.mustgofaster.enchantment.EnchantmentHandler;
 import irar.mustgofaster.event.ServerEventHandler;
+import irar.mustgofaster.item.ItemHandler;
 
 import java.util.stream.Collectors;
 
@@ -66,6 +68,11 @@ public class MustGoFaster
         public static void onEnchantmentsRegistry(final RegistryEvent.Register<Enchantment> event) {
         	EnchantmentHandler.init();
         	EnchantmentHandler.register(event.getRegistry());
+        }
+        @SubscribeEvent
+        public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
+        	ItemHandler.init();
+        	ItemHandler.register(event.getRegistry());
         }
     }
 }

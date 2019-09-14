@@ -1,4 +1,9 @@
 {
 	"enchantment.mustgofaster.speed_boost": "Speed Boost",
-	"enchantment.mustgofaster.step_assist": "Step Assist"
+	"enchantment.mustgofaster.step_assist": "Step Assist",
+	
+	"item.mustgofaster.fast_boots": "Fast Boots",
+	
+	"mustgofaster.speed_level": "Speed Level: %s",
+	"mustgofaster.step": "Step Assist"
 }

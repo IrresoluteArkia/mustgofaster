@@ -1,5 +1,6 @@
 package irar.mustgofaster.enchantment;
 
+import irar.mustgofaster.item.FastBootItem;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -26,7 +27,7 @@ public class StepAssistEnchantment extends Enchantment {
 
 	@Override
 	public boolean canApply(ItemStack stack) {
-		return true;//TODO
+		return !(stack.getItem() instanceof FastBootItem);
 	}
 
 	@Override
@@ -41,7 +42,7 @@ public class StepAssistEnchantment extends Enchantment {
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-		return true;//TODO
+		return !(stack.getItem() instanceof FastBootItem);
 	}
 
 	@Override
