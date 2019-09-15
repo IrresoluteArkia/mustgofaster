@@ -1,0 +1,36 @@
+{
+    "type": "mustgofaster:fast_boots_upgrade",
+    "modify": "speed_level",
+    "modify_type": "increment_integer",
+    "pattern":
+    [
+        " f ",
+        "fbf",
+        " f "
+    ],
+    "key":
+    {
+        "f":
+        {
+            "tag": "forge:ingots/iron"
+        },
+        "b":
+        {
+            "type": "mustgofaster:cos_nbt",
+            "item": "mustgofaster:fast_boots",
+            "nbt":
+            {
+                "speed_level": 1
+            }
+        }
+    },
+    "result":
+    {
+        "item": "mustgofaster:fast_boots",
+        "nbt":
+        {
+            "speed_level": 2,
+            "has_step": false
+        }
+    }
+}

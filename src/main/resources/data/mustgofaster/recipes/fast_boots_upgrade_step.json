@@ -1,0 +1,35 @@
+{
+    "type": "mustgofaster:fast_boots_upgrade",
+    "modify": "has_step",
+    "modify_type": "toggle_boolean",
+    "pattern":
+    [
+        "   ",
+        " b ",
+        "ppp"
+    ],
+    "key":
+    {
+        "p":
+        {
+            "item": "minecraft:piston"
+        },
+        "b":
+        {
+            "type": "mustgofaster:cos_nbt",
+            "item": "mustgofaster:fast_boots",
+            "nbt":
+            {
+                "has_step": false
+            }
+        }
+    },
+    "result":
+    {
+        "item": "mustgofaster:fast_boots",
+        "nbt":
+        {
+            "has_step": true
+        }
+    }
+}

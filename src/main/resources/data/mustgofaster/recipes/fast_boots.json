@@ -1,0 +1,37 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "fdf",
+        "fif",
+        "flf"
+    ],
+    "key":
+    {
+        "d":
+        {
+            "tag": "forge:gems/diamond"
+        },
+        "i":
+        {
+            "item": "minecraft:iron_boots"
+        },
+        "l":
+        {
+            "item": "minecraft:leather_boots"
+        },
+        "f":
+        {
+            "item": "minecraft:feather"
+        }
+    },
+    "result":
+    {
+        "item": "mustgofaster:fast_boots",
+        "nbt":
+        {
+            "speed_level": 1,
+            "has_step": false
+        }
+    }
+}

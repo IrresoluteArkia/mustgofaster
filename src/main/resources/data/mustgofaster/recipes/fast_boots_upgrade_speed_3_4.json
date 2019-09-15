@@ -1,0 +1,36 @@
+{
+    "type": "mustgofaster:fast_boots_upgrade",
+    "modify": "speed_level",
+    "modify_type": "increment_integer",
+    "pattern":
+    [
+        " f ",
+        "fbf",
+        " f "
+    ],
+    "key":
+    {
+        "f":
+        {
+            "tag": "forge:gems/diamond"
+        },
+        "b":
+        {
+            "type": "mustgofaster:cos_nbt",
+            "item": "mustgofaster:fast_boots",
+            "nbt":
+            {
+                "speed_level": 3
+            }
+        }
+    },
+    "result":
+    {
+        "item": "mustgofaster:fast_boots",
+        "nbt":
+        {
+            "speed_level": 4,
+            "has_step": false
+        }
+    }
+}

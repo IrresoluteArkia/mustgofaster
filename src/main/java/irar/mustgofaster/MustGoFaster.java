@@ -2,8 +2,11 @@ package irar.mustgofaster;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -17,6 +20,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import irar.mustgofaster.crafting.CheckOnlySpecifiedNBTIngredient;
+import irar.mustgofaster.crafting.FastBootsUpgradeRecipe;
 import irar.mustgofaster.enchantment.EnchantmentHandler;
 import irar.mustgofaster.event.ServerEventHandler;
 import irar.mustgofaster.item.ItemHandler;
@@ -73,6 +78,12 @@ public class MustGoFaster
         public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
         	ItemHandler.init();
         	ItemHandler.register(event.getRegistry());
+        }
+        @SubscribeEvent
+        public static void onRecipeSerializersRegistry(final RegistryEvent.Register<IRecipeSerializer<?>> event) {
+        	event.getRegistry().register(new FastBootsUpgradeRecipe.Serializer().setRegistryName(MODID, "fast_boots_upgrade"));
+        	
+        	CraftingHelper.register(new ResourceLocation(MODID, "cos_nbt"), CheckOnlySpecifiedNBTIngredient.Serializer.INSTANCE);
         }
     }
 }

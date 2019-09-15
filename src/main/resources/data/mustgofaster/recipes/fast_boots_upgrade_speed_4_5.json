@@ -1,0 +1,40 @@
+{
+    "type": "mustgofaster:fast_boots_upgrade",
+    "modify": "speed_level",
+    "modify_type": "increment_integer",
+    "pattern":
+    [
+        "ifi",
+        "fbf",
+        "ifi"
+    ],
+    "key":
+    {
+        "f":
+        {
+            "tag": "forge:gems/diamond"
+        },
+        "i":
+        {
+            "tag": "forge:storage_blocks/gold"
+        },
+        "b":
+        {
+            "type": "mustgofaster:cos_nbt",
+            "item": "mustgofaster:fast_boots",
+            "nbt":
+            {
+                "speed_level": 4
+            }
+        }
+    },
+    "result":
+    {
+        "item": "mustgofaster:fast_boots",
+        "nbt":
+        {
+            "speed_level": 5,
+            "has_step": false
+        }
+    }
+}
