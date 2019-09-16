@@ -1,10 +1,21 @@
 package irar.mustgofaster;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.model.IBakedModel;
+import net.minecraft.client.renderer.model.ModelResourceLocation;
+import net.minecraft.client.renderer.model.ModelRotation;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.ModelBakeEvent;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.BasicState;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
+import net.minecraftforge.client.model.SimpleModelState;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.RegistryEvent;
@@ -26,6 +37,7 @@ import irar.mustgofaster.enchantment.EnchantmentHandler;
 import irar.mustgofaster.event.ServerEventHandler;
 import irar.mustgofaster.item.ItemHandler;
 
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Mod(MustGoFaster.MODID)
@@ -79,6 +91,18 @@ public class MustGoFaster
         	ItemHandler.init();
         	ItemHandler.register(event.getRegistry());
         }
+    	@SubscribeEvent
+    	public static void modelRegistryReady(ModelRegistryEvent event) {
+    		ItemHandler.registerCustomModels(event);
+    		ModelLoaderRegistry.registerLoader(new BootModelLoader());
+    	}
+    	
+    	@SubscribeEvent
+    	public static void modelBake(ModelBakeEvent event) {
+    		ResourceLocation loc = new ModelResourceLocation(new ResourceLocation(MustGoFaster.MODID, "fast_boots"), "inventory");
+    		event.getModelRegistry().put(loc, ModelLoaderRegistry.getModelOrMissing(loc)
+    		.bake(event.getModelLoader(), Minecraft.getInstance().getTextureMap()::getSprite, ModelRotation.X0_Y0, DefaultVertexFormats.ITEM));
+    	}
         @SubscribeEvent
         public static void onRecipeSerializersRegistry(final RegistryEvent.Register<IRecipeSerializer<?>> event) {
         	event.getRegistry().register(new FastBootsUpgradeRecipe.Serializer().setRegistryName(MODID, "fast_boots_upgrade"));
